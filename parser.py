@@ -11,7 +11,10 @@ with open('input.txt') as f:
 
 # для временного хренения данных покупки  
 temp = {}
-  
+
+# чтобы в словарь записывалть список покупок за день 
+pokupki = []
+ 
 for index,i in enumerate(in_file): #sorted(in_file, reverse=True):
   #print("===================")
    
@@ -21,18 +24,20 @@ for index,i in enumerate(in_file): #sorted(in_file, reverse=True):
    
      
   if (date_words in i) or (index == (len(in_file)-1)):
-    
+    pokupki = []
     # if len(temp) > 0:
       # print(temp.split("\n"))
     _date = i
+    temp.update({_date: pokupki})
     print(_date)
     print("выводим покупки за число {}".format(_date))	
-    
-
     continue
+  pokupki.append(i)    
+
+    
   # обработка массива из покупок
   
-  temp.update({str(index): i})
+  
   
     
   # for pokupka in i.split("Покупка"):
