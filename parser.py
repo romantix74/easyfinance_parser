@@ -86,7 +86,7 @@ for index,i in enumerate(in_file): #sorted(in_file, reverse=True):
   
 ## ВЫВОД СУММ
 print("Магазины: {}".format(shops))
-print("не определно: {}".format(shops))
+print("не определно: {}".format(other))
   
 print("Всего Магазины+Не_определено: {}".format(shops+other))
 print("Всего: {}".format(shops+other))
