@@ -24,10 +24,12 @@ with open('input_2_days.txt', encoding="utf-8") as f:
 def print_pkp(_date,_temp_list):
   for pkp in ''.join(_temp_list).split("Покупка"):
       if pkp != '':
-        #print(_date + ';'  +''.join(pkp.split("\n")))
-        out = ''.join(pkp.split("\n"))  
+        print(_date + ';'  +''.join(pkp.split("\n")))
+        out_shop = ''.join(pkp.split("\n")).split(',',1)
+        #out_etc = ''.join(pkp.split("\n")).split(',',1)[1]
 		# Mir Shkolnika, карта ********2746Mir Shkolnika>P KUGESI RU41 ?
-        print(out)
+        #out = out_shop #+ out_etc
+        #print(out)
 
 # для временного хренения данных покупки  
 temp = []
@@ -35,7 +37,6 @@ temp = []
 _date = ""
 
 
- 
 for index,i in enumerate(in_file): #sorted(in_file, reverse=True):
      
   # пропускаем пустые строки
