@@ -15,18 +15,33 @@ PYATEROCHKA 4354>KUGESI RU
 date_words = "СЕНТЯБР" # "ОКТЯБР"
 
 in_file = []
-with open('input_2_days.txt', encoding="utf-8") as f:
+with open('input.txt', encoding="utf-8") as f:
   in_file = f.readlines()
   
   #in_file = f.read().split(date_words)
 
+# сумма в магазинах  
+shops = 0  
+
+# сумма не определена
+other= 0
+
+# сумма всего , для проверки 
+all = 0 
+ 
 # вывод покупок раздельно в строку
 def print_pkp(_date,_temp_list):
   for pkp in ''.join(_temp_list).split("Покупка"):
       if pkp != '':
         #print(_date + ';'  +''.join(pkp.split("\n")))
         out = ''.join(pkp.split("\n"))  
+        if "RU" in out:
+          rub = out.split(" ")[-2].split("RU")[-1]		
 		# Mir Shkolnika, карта ********2746Mir Shkolnika>P KUGESI RU41 ?
+        if "MAGNIT" in pkp:
+          shops += int(rub)	
+#        else:
+ #         all += int(rub)		
         print(out)
 
 # для временного хренения данных покупки  
@@ -60,7 +75,8 @@ for index,i in enumerate(in_file): #sorted(in_file, reverse=True):
     print_pkp(_date, temp)
   temp.append(i)
       
-  
+
+if "__main__"	  
     
   # обработка массива из покупок
   
