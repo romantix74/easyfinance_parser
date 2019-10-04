@@ -20,28 +20,36 @@ with open('input.txt', encoding="utf-8") as f:
   
   #in_file = f.read().split(date_words)
 
-# сумма в магазинах  
-shops = 0  
+# сумма в магазинах    
+shops = 0
 
 # сумма не определена
-other= 0
+other = 0
 
 # сумма всего , для проверки 
-all = 0 
- 
+all = 0
+
 # вывод покупок раздельно в строку
 def print_pkp(_date,_temp_list):
+  global shops
+  global other
+  global all
   for pkp in ''.join(_temp_list).split("Покупка"):
       if pkp != '':
         #print(_date + ';'  +''.join(pkp.split("\n")))
         out = ''.join(pkp.split("\n"))  
         if "RU" in out:
-          rub = out.split(" ")[-2].split("RU")[-1]		
-		# Mir Shkolnika, карта ********2746Mir Shkolnika>P KUGESI RU41 ?
-        if "MAGNIT" in pkp:
-          shops += int(rub)	
-#        else:
- #         all += int(rub)		
+          rub = out.split(" ")[-2].split("RU")[-1].replace(',', '.')
+          rub = int(float(rub))
+          print(rub)		  
+		  # Mir Shkolnika, карта ********2746Mir Shkolnika>P KUGESI RU41 ?
+          all += rub
+          print(all)		  
+		
+          if ("MAGNIT" in pkp) or ("GASTRONOM" in pkp) or ("PYATEROCHKA" in pkp) or ("ZVENIGOVSKI" in pkp):
+            shops += rub
+          else:
+            other += rub		
         print(out)
 
 # для временного хренения данных покупки  
@@ -74,9 +82,14 @@ for index,i in enumerate(in_file): #sorted(in_file, reverse=True):
     temp.append(i)
     print_pkp(_date, temp)
   temp.append(i)
-      
 
-if "__main__"	  
+  
+## ВЫВОД СУММ
+print("Магазины: {}".format(shops))
+print("не определно: {}".format(shops))
+  
+print("Всего Магазины+Не_определено: {}".format(shops+other))
+print("Всего: {}".format(shops+other))
     
   # обработка массива из покупок
   
