@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# master vetka
+
 """
 формат такой примерно
 1 ОКТЯБРЯ
