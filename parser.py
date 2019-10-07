@@ -1,10 +1,5 @@
 #!/usr/bin/python
 
-<<<<<<< HEAD
-# master vetka
-=======
-##test string
->>>>>>> test
 
 """
 формат такой примерно
