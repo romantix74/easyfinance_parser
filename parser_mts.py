@@ -1,6 +1,16 @@
 #!/usr/bin/python
 
 """
+  FRUKTY I OVOSHHI > Kugesi RU	
+−131 руб.
+31.10.2019  в 09:55
+В обработке
+   TATNEFT AZS 469 > RESP. TATARST RU\643\	
+−299,71 руб.
+30.10.2019  в 13:26
+Успешно
+
+old format (before 01.11.2019)
 17.09.2019 21.09.2019 - 490.00 ? - 490.00 ?
 Платеж
 MOYA
@@ -20,7 +30,7 @@ UGESI RU\643\
 date_words = "09.2019" # "ОКТЯБР"
 
 in_file = []
-with open('input_mts.txt', encoding="utf-8") as f:
+with open('input_mts_2.txt', encoding="utf-8") as f:
   in_file = f.readlines()
   
   #in_file = f.read().split(date_words)
