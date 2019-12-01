@@ -13,7 +13,7 @@ PYATEROCHKA 4354>KUGESI RU
 """
 
 # для выборки даты
-date_words = "СЕНТЯБР" # "ОКТЯБР"
+date_words = "НОЯБР" # "ОКТЯБР"
 
 in_file = []
 with open('input.txt', encoding="utf-8") as f:
@@ -24,6 +24,9 @@ with open('input.txt', encoding="utf-8") as f:
 # сумма в магазинах    
 shops = 0
 
+# заправки
+zapravki = 0
+
 # сумма не определена
 other = 0
 
@@ -33,6 +36,7 @@ all = 0
 # вывод покупок раздельно в строку
 def print_pkp(_date,_temp_list):
   global shops
+  global zapravki
   global other
   global all
   for pkp in ''.join(_temp_list).split("Покупка"):
@@ -49,6 +53,8 @@ def print_pkp(_date,_temp_list):
 		
           if ("MAGNIT" in pkp) or ("GASTRONOM" in pkp) or ("PYATEROCHKA" in pkp) or ("ZVENIGOVSKI" in pkp):
             shops += rub
+          elif ("TATNEFT" in pkp):
+            zapravki += rub
           else:
             other += rub		
         print(out)
@@ -87,10 +93,11 @@ for index,i in enumerate(in_file): #sorted(in_file, reverse=True):
   
 ## ВЫВОД СУММ
 print("Магазины: {}".format(shops))
+print("Заправки: {}".format(zapravki))
 print("не определно: {}".format(other))
   
-print("Всего Магазины+Не_определено: {}".format(shops+other))
-print("Всего: {}".format(shops+other))
+print("Всего Магазины+Заправки+Не_определено: {}".format(shops+zapravki+other))
+print("Всего: {}".format(shops+zapravki+other))
     
   # обработка массива из покупок
   

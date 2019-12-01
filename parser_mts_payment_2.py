@@ -18,10 +18,10 @@ from payment MTS
 """
 
 # для выборки даты
-date_words = "10.2019" # "ОКТЯБР"
+date_words = "11.2019" # "ОКТЯБР"
 
 in_file = []
-with open('input_mts_2.txt', encoding="utf-8") as f:
+with open('input_mts_test.txt', encoding="utf-8") as f:
   in_file = f.readlines()
   
   #in_file = f.read().split(date_words)
